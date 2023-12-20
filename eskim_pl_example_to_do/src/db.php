@@ -144,7 +144,7 @@ class eskim_pl_example_to_do_DB {
         $table = $wpdb->prefix . "eskim_pl_example_to_do";
 
         $query = $wpdb->prepare ("
-			SELECT id, task, DATE_FORMAT (created, '%%Y-%%m-%%d') AS created
+			SELECT id, task, DATE_FORMAT(created, '%%Y-%%m-%%d') AS created
 			FROM $table 
 			WHERE closed IS NULL
             ORDER BY created

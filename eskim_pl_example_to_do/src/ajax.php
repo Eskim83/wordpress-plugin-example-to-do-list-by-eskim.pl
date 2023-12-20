@@ -9,7 +9,7 @@ if ( !function_exists( 'add_action' ) ) {
     die();
 }
 
-if ( wp_verify_nonce($_POST['action'], 'saveTask' ) ) {
+if ( isset ($_POST['action']) && wp_verify_nonce($_POST['action'], 'saveTask' ) ) {
 
     $db = new eskim_pl_example_to_do_DB();
     $id = $db->addTask($_POST['task']);
@@ -22,7 +22,7 @@ if ( wp_verify_nonce($_POST['action'], 'saveTask' ) ) {
     wp_die();
 }
 
-elseif ( wp_verify_nonce($_POST['action'], 'hideTask' ) ) {
+elseif ( isset ($_POST['action']) && wp_verify_nonce($_POST['action'], 'hideTask' ) ) {
 
     $db = new eskim_pl_example_to_do_DB();
     $db->hideTask($_POST['id']);
